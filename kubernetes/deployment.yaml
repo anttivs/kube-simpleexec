@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simpleexec-deployment
+spec:
+  selector:
+    matchLabels:
+      app: simpleexec
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: simpleexec
+    spec:
+      containers:
+      - name: simpleexec
+        image: registry.hub.docker.com/anttivs/kube-simple:latest
+        ports:
+        - containerPort: 8080
